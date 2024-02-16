@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <h2>Delivey Location!</h2>
+    <select name="cars" id="cars" (change)="deliveryLocationSelect($event)">
+      <option value="none" selected  hidden class="text-center "> --Select city --</option>
+      <option value="Kathmandu">Kathmandu</option>
+      <option value="Pokhara">Pokhara</option>
+      <option value="pickup">pickup</option>
+      <option value="narayanghat">narayanghat</option>
+    </select>
+  </div>
+  <div class="container">
+    <div class="row">
+      <button (click)="goPaymentMethod()" class="btn btn-success mt-3" id="nextDeliveryBtn"  [disabled]="!proceedFurther">Next-PaymentMethod >></button>
+    </div>
+    <div class="row mt-2">
+      <button (click) = "goBillShopMethod()" class="btn btn-warning" id="personalInfoBtn"> << Prev-Billing/shippingInfo</button>
+    </div>
+  </div>
+
+
+</div>
+
+

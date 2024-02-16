@@ -1,0 +1,13 @@
+<button mat-raised-button>Basic</button>
+
+<!-- <div class="col-md-8 offset-md-4">
+  <input hidden type="file" #profileUpload (change) = "ImageUpload($event)">
+  <button mat-raised-button color="primary" (click)="profileUpload.click()">change image</button>
+</div> -->
+
+<div class="mb-3">
+  <label for="formFile" class="form-label">Select Image Here</label>
+  <input type="form-control"
+    type="file" id="formFile "
+    (change)="onChangeFileField($event)"/>
+</div>

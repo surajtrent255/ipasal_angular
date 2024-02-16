@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      .form-container {
+        width: 500px;
+        margin: auto;
+        text-align: center;
+        padding: 50px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+
+      input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+
+      .error {
+        color: red;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm" id="login-form" (ngSubmit)="loginUser()">
+        <div class="row">
+            <input type="email" placeholder="Email" id="email" formControlName="email">
+            <span style="color: red;" *ngIf="email && email.invalid && email.touched"><p>enter valid email</p></span>
+        </div>
+        <div class="row">
+            <input type="password" placeholder="Password" id="password" formControlName = "password">
+            <span style="color: red;" *ngIf="password && password.invalid && password.touched"><p>enter valid password</p></span>
+        </div>
+        <button type="submit" [disabled]="loginForm.invalid" value="suraj">Submit</button>
+        <!-- <input type="submit" value="Submit" [disabled]="loginForm.invalid"> -->
+
+      </form>
+    </div>
+
+  </body>
+</html>

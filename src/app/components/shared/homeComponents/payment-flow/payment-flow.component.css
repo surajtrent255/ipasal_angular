@@ -1,0 +1,31 @@
+.badge-container {
+  color: #e65440;
+  font-weight: bolder;
+}
+
+.badge {
+  height: 17px;
+  width: 17px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.badge-normal {
+  background-color: #ccc;
+}
+
+.badge-selected {
+  background-color: #e65440;
+}
+.checkout-status-container {
+  height: 3em;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+#shipping_detail_container {
+  margin: 50px auto;
+  width: 80%;
+}

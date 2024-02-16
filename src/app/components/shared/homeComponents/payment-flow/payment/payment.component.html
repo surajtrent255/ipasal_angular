@@ -1,0 +1,59 @@
+<div class="container p-3">
+  <h2>Payment Method</h2>
+  <hr>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="payMethod">Pay By: </label>
+        <div>
+          <input id="esea"
+                    type="radio"
+                    value="esewa"
+                    name="paymentMethod"
+                    formControlName="paymentMethod"
+                    (change)="selectPaymentMethod($event)">
+          <label for="male " class="ml-3"> Esewa</label>
+       </div>
+       <div>
+          <input id="khalti"
+                    type="radio"
+                    value="khalti"
+                    name="paymentMethod"
+                    formControlName="paymentMethod"
+                    (change)="selectPaymentMethod($event)">
+
+          <label for="female" class="ml-3"> Khalti</label>
+       </div>
+       <div>
+        <input id="cashInHand"
+                  type="radio"
+                  value="cashInHand"
+                  name="paymentMethod"
+                  formControlName="paymentMethod"
+                  (change)="selectPaymentMethod($event)">
+
+        <label for="female" class="ml-3"> Cash in hand</label>
+     </div>
+
+     <!-- <div *ngFor="let method of paymentMethods">
+        <input
+              id="{{method}}"
+              type="radio"
+              value="{{method}}"
+              name="paymentMethod"
+              formControlName="paymentMethod"
+              (change)="selectPaymentMethod($event) "
+
+          >
+          <i> {{method}}</i>
+     </div> -->
+     <!-- <ngx-paypal [config]="payPalConfig"></ngx-paypal> -->
+     <button class="btn btn-danger" type="submit" [disabled]="!form.valid">Confirm Order</button>
+    </div>
+  </form>
+  <div class="container">
+    <div class="row mt-2">
+      <button (click) = "goDeliveryMethod()" class="btn btn-warning" id="personalInfoBtn"> << Prev-DeliveryInfo</button>
+    </div>
+  </div>
+  </div>
+  <script type="text/javascript"></script>

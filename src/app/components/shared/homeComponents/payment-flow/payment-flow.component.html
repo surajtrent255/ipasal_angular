@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="row checkout-status-container">
+    <div class="col-20 ml-5 mt-3">
+      <div [ngClass]="{ 'badge-container': checkoutStages.personalStage }">
+        <span
+          [ngClass]="{
+            'badge badge-normal': true,
+            'badge-selected': checkoutStages.personalStage
+          }"
+          >1</span
+        >PERSONAL
+      </div>
+    </div>
+    <div class="col-20 ml-5 mt-3">
+      <div [ngClass]="{ 'badge-container': checkoutStages.shippingStage }">
+        <span
+          [ngClass]="{
+            'badge badge-normal': true,
+            'badge-selected': checkoutStages.shippingStage
+          }"
+          >2</span
+        >SHIPPING
+      </div>
+    </div>
+    <div class="col-20 ml-5 mt-3">
+      <div [ngClass]="{ 'badge-container': checkoutStages.deliveryStage }">
+        <span
+          [ngClass]="{
+            'badge badge-normal': true,
+            'badge-selected': checkoutStages.deliveryStage
+          }"
+          >3</span
+        >DELIVERY
+      </div>
+    </div>
+    <div class="col-20 ml-5 mt-3">
+      <div [ngClass]="{ 'badge-container': checkoutStages.paymentStage }">
+        <span
+          [ngClass]="{
+            'badge badge-normal': true,
+            'badge-selected': checkoutStages.paymentStage
+          }"
+          >4</span
+        >PAYMENT
+      </div>
+    </div>
+    <div class="col-20 ml-5 mt-3">
+      <div [ngClass]="{ 'badge-container': checkoutStages.finishStage }">
+        <span
+          [ngClass]="{
+            'badge badge-normal': true,
+            'badge-selected': checkoutStages.finishStage
+          }"
+          >5</span
+        >FINISH
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-2">
+      <app-personal-info *ngIf="checkoutStages.personalStage">
+      </app-personal-info>
+
+      <app-shipping *ngIf="checkoutStages.shippingStage"></app-shipping>
+      <app-delivery *ngIf="checkoutStages.deliveryStage"></app-delivery>
+      <app-payment *ngIf="checkoutStages.paymentStage"></app-payment>
+      <app-finish *ngIf="checkoutStages.finishStage"></app-finish>
+    </div>
+
+      <div class="col-md-4 offset-md-1 ">
+        <table class=" table table-striped text-dark ">
+          <thead class="card-title">
+            <tr>
+              <th>Items In Cart</th>
+              <th><i class="fas fa-shopping-cart" aria-hidden="true"></i> 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cartProduct of cartProducts">
+              <td>
+                {{ cartProduct.productName }} X {{ cartProduct.quantity }}
+              </td>
+              <td>
+                Rs
+                {{
+                  (cartProduct.rate * cartProduct.quantity).toLocaleString("en")
+                }}
+              </td>
+            </tr>
+            <tr>
+              <td class="text-dark">Sub Total =</td>
+              <td>Rs {{ subTotal.toLocaleString("en") }}</td>
+            </tr>
+            <tr>
+              <td>Shipping Cost =</td>
+              <td>Rs {{ shippingCost.toLocaleString("en") }}</td>
+            </tr>
+            <tr>
+              <td>Total =</td>
+              <td>Rs {{ (subTotal + shippingCost).toLocaleString("en") }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

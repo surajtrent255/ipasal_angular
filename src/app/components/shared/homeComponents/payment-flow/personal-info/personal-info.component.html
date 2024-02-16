@@ -1,0 +1,99 @@
+<h3>Personal Info</h3>
+<form
+  #personalInfoForm="ngForm"
+  name="fillPersonalInfo"
+  (ngSubmit)="submitForm()"
+  id="personalInfoForm"
+  class=""
+>
+  <div class="control-group">
+    <input
+      type="text"
+      [class.is-invalid]="fname.invalid && fname.touched"
+      class="form-control"
+      id="fName"
+      #fname="ngModel"
+      required
+      name="fName"
+      [(ngModel)]="user.fName"
+      placeholder="First Name"
+      required="required"
+    />
+    <small class="text-danger" [class.d-none]="fname.valid || fname.untouched"
+      >invalid first name</small
+    >
+  </div>
+  <div class="control-group mt-4">
+    <input
+      type="text"
+      class="form-control"
+      id="mName"
+      name="mName"
+      [(ngModel)]="user.mName"
+      placeholder="Middle Name"
+    />
+  </div>
+  <div class="control-group mt-4">
+    <input
+      type="text"
+      class="form-control"
+      id="lName"
+      name="lName"
+      #lName="ngModel"
+      [class.is-invalid]="lName.invalid && lName.touched"
+      [(ngModel)]="user.lName"
+      placeholder="Last Name"
+      required="required"
+      data-validation-required-message=" enter valid last name"
+    />
+    <small class="text-danger" [class.d-none]="lName.valid || lName.untouched"
+      >invalid last name</small
+    >
+  </div>
+  <div class="control-group mt-4">
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      #email="ngModel"
+      pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+      placeholder="Your Email"
+      name="email"
+      [class.is-invalid]="email.invalid && email.touched"
+      [(ngModel)]="user.email"
+      required="required"
+    />
+    <small class="text-danger" [class.d-none]="email.valid || email.untouched"
+      >invalid email
+    </small>
+  </div>
+  <div class="control-group mt-4">
+    <input
+      type="text"
+      class="form-control"
+      name="phone"
+      [(ngModel)]="user.phone"
+      pattern="^\d{10}$"
+      #phone="ngModel"
+      id="phone"
+      [class.is-invalid]="phone.invalid && phone.touched"
+      placeholder="phone"
+      required="required"
+      data-validation-required-message="enter valid Phone Number"
+    />
+    <small class="text-danger" [class.d-none]="phone.valid || phone.untouched"
+      >invalid phone
+    </small>
+  </div>
+
+  <div class="mt-4">
+    <button
+      class="btn btn-warning btn-block py-2 px-4"
+      type="submit"
+      id="submitPersonalInfo"
+      [disabled]="personalInfoForm.form.invalid"
+    >
+      Submit Info
+    </button>
+  </div>
+</form>
